@@ -104,9 +104,8 @@ const Navbar: React.FC = () => {
     <>
       {/* NAVBAR */}
       <nav
-        className={`fixed top-0 w-full z-50 bg-white transition-all duration-300 ${
-          hasScrolled ? "shadow-md py-1.5" : "py-2.5"
-        }`}
+        className={`fixed top-0 w-full z-50 bg-white transition-all duration-300 ${hasScrolled ? "shadow-md py-1.5" : "py-2.5"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <Link href="/" className="text-xl font-bold text-black hover:opacity-80 transition-opacity duration-300">
@@ -162,15 +161,15 @@ const Navbar: React.FC = () => {
 
           {/* DESKTOP ACTIONS */}
           <div className="hidden md:flex items-center gap-6">
-            <button 
-              onClick={() => setIsSearchOpen(true)} 
+            <button
+              onClick={() => setIsSearchOpen(true)}
               className="text-black hover:text-gray-700 transition-colors duration-300 p-1.5 hover:bg-gray-100 rounded-full"
             >
               <Search className="w-5 h-5" />
             </button>
 
-            <button 
-              onClick={() => setIsCartOpen(true)} 
+            <button
+              onClick={() => setIsCartOpen(true)}
               className="relative text-black hover:text-gray-700 transition-colors duration-300 p-1.5 hover:bg-gray-100 rounded-full"
             >
               <ShoppingCart className="w-5 h-5" />
@@ -198,8 +197,8 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* MOBILE BUTTON */}
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-black p-1 hover:bg-gray-100 rounded-full transition-colors duration-300"
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -253,7 +252,7 @@ const Navbar: React.FC = () => {
             </div>
 
             <div className="flex justify-between mt-4 pt-3 border-t border-gray-100">
-              <button 
+              <button
                 onClick={() => {
                   setIsSearchOpen(true);
                   setIsMenuOpen(false);
@@ -264,7 +263,7 @@ const Navbar: React.FC = () => {
                 <span className="text-xs">Search</span>
               </button>
 
-              <button 
+              <button
                 onClick={() => {
                   setIsCartOpen(true);
                   setIsMenuOpen(false);
@@ -332,15 +331,15 @@ const Navbar: React.FC = () => {
       {/* CART MODAL - Professional Design */}
       <AnimatePresence>
         {isCartOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div 
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm" 
-              onClick={() => setIsCartOpen(false)} 
+            <div
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              onClick={() => setIsCartOpen(false)}
             />
             <motion.div
               initial={{ scale: 0.95, y: 20 }}
@@ -354,7 +353,7 @@ const Navbar: React.FC = () => {
                   <h2 className="text-xl font-bold text-black">Shopping Cart</h2>
                   <p className="text-sm text-gray-600">{cartItems.length} items</p>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsCartOpen(false)}
                   className="text-gray-400 hover:text-black p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
                 >
@@ -383,11 +382,11 @@ const Navbar: React.FC = () => {
                         <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
                           <Package className="w-8 h-8 text-gray-400" />
                         </div>
-                        
+
                         <div className="flex-1 min-w-0">
                           <h3 className="font-medium text-black truncate">{item.title}</h3>
                           <p className="text-sm text-gray-600 mt-1">${item.price.toFixed(2)} each</p>
-                          
+
                           <div className="flex items-center justify-between mt-3">
                             <div className="flex items-center gap-2">
                               <button
@@ -404,7 +403,7 @@ const Navbar: React.FC = () => {
                                 <Plus className="w-4 h-4" />
                               </button>
                             </div>
-                            
+
                             <div className="flex items-center gap-4">
                               <span className="font-bold text-black">
                                 ${(item.price * item.quantity).toFixed(2)}
@@ -441,7 +440,7 @@ const Navbar: React.FC = () => {
                       <span className="text-xl font-bold text-black">${cartTotal.toFixed(2)}</span>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-3">
                     <button className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300">
                       Proceed to Checkout
@@ -453,7 +452,7 @@ const Navbar: React.FC = () => {
                       Continue Shopping
                     </button>
                   </div>
-                  
+
                   <p className="text-center text-xs text-gray-500 mt-4">
                     Secure checkout • 30-day money-back guarantee
                   </p>
@@ -468,24 +467,24 @@ const Navbar: React.FC = () => {
 
       {showLoginModal && (
         <SignInModal
-          isOpen
           onClose={() => setShowLoginModal(false)}
           onOpenSignup={() => {
             setShowLoginModal(false);
             setShowSignupModal(true);
           }}
         />
+
       )}
 
       {showSignupModal && (
         <SignUpModal
-          isOpen
           onClose={() => setShowSignupModal(false)}
-          onOpenLogin={() => {
+          onOpenSignin={() => {
             setShowSignupModal(false);
             setShowLoginModal(true);
           }}
         />
+
       )}
     </>
   );
